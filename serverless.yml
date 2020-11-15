@@ -1,0 +1,42 @@
+service:
+  name: pLoop-AWS
+
+plugins:
+  - serverless-bundle
+  - serverless-pseudo-parameters
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 256
+  stage: ${opt:stage, 'v1/auth'}
+  region: ap-south-1
+    
+functions:
+  inviteUser:
+    handler: src/handlers/inviteUser.InviteUser
+    events:
+      - http:
+          method: POST
+          path: /invite
+  registerUser:
+    handler: src/handlers/registerUser.Register
+    events:
+      - http:
+          method: POST
+          path: /register
+  loginUser:
+    handler: src/handlers/loginUser.login
+    events:
+      - http:
+          method: POST
+          path: /login
+  forgotPassword:
+    handler: src/handlers/forgotPass.forgotPassword
+    events:
+      - http:
+          method: POST
+          path: /forgotPassword
+ 
+          
