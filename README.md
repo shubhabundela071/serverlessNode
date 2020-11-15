@@ -27,7 +27,7 @@ Local Server start:
  - sls offline
 
 Live Server Deploy:
-  - serverless deploy & sls deploy
+  - serverless deploy -v & sls deploy -v
 
 # DB Connetion and credentials
 .env 
