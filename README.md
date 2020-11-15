@@ -11,6 +11,7 @@
 
 Install dependencies:
 ```sh
+
 - npm i
 - curl -o- -L https://slss.io/install | bash
 - npm install -g serverless
