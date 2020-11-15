@@ -1,4 +1,4 @@
-# Serverless + nodeJs
+# Serverless + NodeJs
 
 ## System Requirement
 
