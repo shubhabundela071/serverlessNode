@@ -12,6 +12,7 @@
 Install dependencies:
 ```sh
 
+- cd /project
 - npm i
 - curl -o- -L https://slss.io/install | bash
 - npm install -g serverless
@@ -40,4 +41,5 @@ Live Server Deploy:
 https://github.com/codingly-io/sls-base
 
 https://www.serverless.com/framework/docs/getting-started/
+
 
