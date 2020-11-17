@@ -1,4 +1,4 @@
-module.exports = {
+export default  {
   success: 'Success',
   failure: 'Failure',
   registration: 'You have registered successfully',

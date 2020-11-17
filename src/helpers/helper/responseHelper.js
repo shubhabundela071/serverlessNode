@@ -1,30 +1,29 @@
-
-const pe = require('parse-error'); //parses error so you can read error message and handle them accordingly
-module.exports = {
-to : function (promise) { 
-  return promise
-    .then(data => {
-      return [null, data];
-    }).catch(err => [pe(err)]);
-},
-successResponse: function (res, code, data, message) {
-  return res.status(code || 200).json({
-    success: true,
-    data,
-    code,
-    message
-  })
-},
-handleSuccess :function (res, data, message) {
-  return successResponse(res, 200, data, message);
-},
-handleError : function (res, data, message) {
-  res.statusCode = 406;
-  return res.json({
+const handleError = async (data, msg) => {
+  data = {
     success: false,
-    code: 406,
     data: data,
-    message: message
+    message:msg
+  }
+  return ({
+  statusCode: 400,
+  body: JSON.stringify(data),
+  headers: { "Access-Control-Allow-Origin": "*" }
   })
-}
+};
+
+const handleSuccess = async (data, msg) => {
+  data = {
+    success: true,
+    data: data,
+    message:msg
+  }
+  return ({
+  statusCode: 200,
+  body: JSON.stringify(data),
+  headers: { "Access-Control-Allow-Origin": "*" }
+  })
+};
+export{
+  handleSuccess,
+  handleError
 }

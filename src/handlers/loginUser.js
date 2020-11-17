@@ -1,12 +1,11 @@
-let UserLoginService = require('../helpers/services/userLogin');
+const UserLoginService = require('../helpers/services/userLogin');
+const Response = require('../helpers/helper/responseHelper');
 const login = async ( event ) => {
   try {
     const resultInvite = await UserLoginService.userLogin(event);
     return resultInvite
   } catch (e) {
-    return {statusCode: 400, body: JSON.stringify({data:{}, message: "Something was worng"
-    })
-  };
+    return Response.handleError({}, "Something was worng");
  }
 }
 export {
